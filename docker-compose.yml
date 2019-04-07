@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+    pytorch:
+        build:
+          context: .
+          dockerfile: ./Dockerfile
+        image: pytorch/pytorch
+        container_name: pytorch
+        hostname: pytorch
+        ports:
+          - "8888:8888"
+        user: root
+        networks:
+          - rosdocker
+        volumes:
+          - "/tmp/.X11-unix:/tmp/.X11-unix"
+          - ".:/workspace/:z"
+          #- "./data/:/home/jovyan/Heika/data/:z"
+        environment:
+          - "DISPLAY=$DISPLAY"
+          - "QT_X11_NO_MITSHM=1"
+          #- "NB_UID=1000"
+
+        #command: start-notebook.sh
+        tty: true
+        command: bash
+
+  
+
+networks:
+  rosdocker: 
+    driver: bridge
