@@ -19,7 +19,8 @@ commands = [
     # 1. synchronous
     # 2. asynchronous
     #[base_command + 'test.py', 'synchronous', True],
-    [base_command + 'cnn_example.py', 'synchronous', True],
+    #[base_command + 'cnn_example.py', 'synchronous', True],
+    [base_command + 'heika_model.py', 'synchronous', True],
     [end_command, 'synchronous', True]
         ]
 
